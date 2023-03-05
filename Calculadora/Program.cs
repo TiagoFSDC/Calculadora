@@ -1,57 +1,75 @@
-﻿double num1, num2;
-int opcao = 0;
-
-void Menu()
+﻿internal class Program
 {
-    Console.Clear();
-    Console.WriteLine("1 - Somar");
-    Console.WriteLine("2 - Subtrair");
-    Console.WriteLine("3 - Multiplicar");
-    Console.WriteLine("4 - Dividir");
-    Console.WriteLine("5 - Sair");
-    Console.WriteLine("Escolha uma opção: ");
-    opcao = int.Parse(Console.ReadLine());
-
-    switch (opcao)
+    private static void Main(string[] args)
     {
-        default:
-            Console.WriteLine("Opção invalida");
-            Console.ReadLine(); 
-            break;
+        double num1, num2, calculo;
+        int opcao = 0;
+        void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine("1-Somar");
+            Console.WriteLine("2-Subtrair");
+            Console.WriteLine("3-Multiplicar");
+            Console.WriteLine("4-Dividir");
+            Console.WriteLine("5-Sair");
+            Console.Write("Escolha uma opção: ");
+            opcao = int.Parse(Console.ReadLine());
+        }
+        Console.WriteLine("Informe o primeiro numero: ");
+        num1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Informe o segundo numero: ");
+        num2 = double.Parse(Console.ReadLine());
+        while (opcao != 5)
+        {
+            Menu();
 
-        case 1: Console.WriteLine("A soma dos numeros é: " + (num1+num2));
-            Console.Read();
-            break;
-
-        case 2:
-            Console.WriteLine("A subtração dos numeros é: " + (num1 - num2));
-            Console.Read();
-            break;
-
-        case 3:
-            Console.WriteLine("A multiplicação dos numeros é: " + (num1 * num2));
-            Console.Read();
-            break;
-
-        case 4:
-            Console.WriteLine("A divisão dos numeros é: " + (num1/num2));
-            Console.Read();
-            break;
-        case 5:
-            Console.WriteLine("Até logo!");
-            Console.ReadLine();
-            break;
+            switch (opcao)
+            {
+                default:
+                    Console.WriteLine("Opção invalida.");
+                    Console.ReadLine();
+                    break;
+                case 1:
+                    Console.WriteLine("Soma: " + Soma());
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine("Subtração: " + Subtracao());
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    Console.WriteLine("Multiplicacção: " + Multiplicaçao());
+                    Console.ReadLine();
+                    break;
+                case 4:
+                    Console.WriteLine("Divisão: " + Divisao());
+                    Console.ReadLine();
+                    break;
+                case 5:
+                    Console.WriteLine("Até logo.");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        double Soma()
+        {
+            calculo = num1 + num2;
+            return calculo;
+        }
+        double Subtracao()
+        {
+            calculo = num1 - num2;
+            return calculo;
+        }
+        double Multiplicaçao()
+        {
+            calculo = num1 * num2;
+            return calculo;
+        }
+        double Divisao()
+        {
+            calculo = num1 / num2;
+            return calculo;
+        }
     }
-}
-
-
-Console.WriteLine("Informe o primeiro numero: ");
-num1 = double.Parse(Console.ReadLine());
-
-Console.WriteLine("Informe o segundo numero: ");
-num2 = double.Parse(Console.ReadLine());
-
-while (opcao != 5)
-{
-    Menu();
 }
